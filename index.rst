@@ -3,14 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CordJS's documentation!
+.. .. highlight:: coffee-script
+
+CordJS - документация
 ==================================
 
-Contents:
+Содержание:
 
 .. toctree::
    :maxdepth: 2
 
+Текст после оглавления::
+
+  class Base extends Widget
+    x: y
 
 
 Indices and tables
