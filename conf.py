@@ -98,7 +98,8 @@ exclude_patterns = ['_build']
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'friendly'
+highlight_language = "coffee-script"
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -120,6 +121,14 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #html_theme_options = {}
+html_theme_options = {
+    'github_user': 'cordjs',
+    'github_repo': 'cordjs-docs-ru',
+    'github_button': 'true',
+    'github_banner': 'true',
+    'font_family': '"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif',
+    'head_font_family': '"Source Sans Pro","Helvetica Neue","Arial",sans-serif'
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
