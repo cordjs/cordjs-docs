@@ -39,6 +39,7 @@ CSS --- проблемный язык. Две главные проблемы:
 объявлены внутри этого виджета. При этом можно легко избежать селекторов с наследованием и улучшить производительность:
 
 .. code-block:: sass
+  :linenos:
   :caption: someWidget.styl
 
   .someWidget
@@ -50,6 +51,7 @@ CSS --- проблемный язык. Две главные проблемы:
 VS
 
 .. code-block:: sass
+  :linenos:
   :emphasize-lines: 1, 3
   :caption: someWidget.styl
 
@@ -105,6 +107,7 @@ CSS-библиотекой.
   параметров/свойств/атрибутов (props) виджета, отличных от ``class``. Например:
 
   .. code-block:: html
+    :linenos:
     :caption: parentWidget.vdom.html
 
     <div>
@@ -112,6 +115,7 @@ CSS-библиотекой.
     </div>
 
   .. code-block:: smarty
+    :linenos:
     :caption: someWidget.vdom.html
 
     <div class={{ element: true, highlighted: props.highlighted }}>
@@ -167,6 +171,7 @@ CSS-библиотекой.
    зависимости от контекстного класса скина, например, если у нас есть скины *dark* и *light*:
 
   .. code-block:: sass
+    :linenos:
     :emphasize-lines: 1, 7
     :caption: someWidget.styl
 
@@ -194,12 +199,14 @@ CSS-библиотекой.
    цвета, иконки и бекграунды, и использовать эти переменные в конечных файлах стилей.
 
   .. code-block:: sass
+    :linenos:
     :caption: dark-skin.styl
 
     $primaryBgColor = gray
     $highlightColor = green
 
   .. code-block:: sass
+    :linenos:
     :caption: someWidget.styl
 
     @import '__skin__'
@@ -223,6 +230,7 @@ CSS-библиотекой.
    набором классов, но разными значениями свойств.
 
   .. code-block:: sass
+    :linenos:
     :caption: dark-skin.styl
 
     .skin-primary-bg
@@ -232,6 +240,7 @@ CSS-библиотекой.
       background-color: $highlightColor
 
   .. code-block:: smarty
+    :linenos:
     :caption: someWidget.vdom.html
 
     <div class={{ element: true,
@@ -301,6 +310,7 @@ stylus-файлу можно задать несколькими способа�
 Пример объявления зависимостей:
 
 .. code-block:: sass
+  :linenos:
   :emphasize-lines: 1,2
   :name: import-example
   :caption: someWidget.styl

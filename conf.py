@@ -80,7 +80,7 @@ language = 'ru'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', '.git/*', '.idea/*']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -113,25 +113,39 @@ todo_include_todos = True
 
 # -- Options for HTML output ----------------------------------------------
 
+import guzzle_sphinx_theme
+
+# Adds an HTML table visitor to apply Bootstrap table classes
+#html_translator_class = 'guzzle_sphinx_theme.HTMLTranslator'
+
+# Register the theme as an extension to generate a sitemap.xml
+#extensions.append("guzzle_sphinx_theme")
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme = 'guzzle_sphinx_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #html_theme_options = {}
+#html_theme_options = {
+#    'github_user': 'cordjs',
+#    'github_repo': 'cordjs-docs-ru',
+#    'github_button': 'true',
+#    'github_banner': 'true',
+#    'font_family': '"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif',
+#    'head_font_family': '"Source Sans Pro","Helvetica Neue","Arial",sans-serif'
+#}
 html_theme_options = {
-    'github_user': 'cordjs',
-    'github_repo': 'cordjs-docs-ru',
-    'github_button': 'true',
-    'github_banner': 'true',
-    'font_family': '"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif',
-    'head_font_family': '"Source Sans Pro","Helvetica Neue","Arial",sans-serif'
+    # Set the name of the project to appear in the sidebar
+    "project_nav_name": "CordJS",
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+html_theme_path = guzzle_sphinx_theme.html_theme_path()
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
