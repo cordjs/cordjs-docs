@@ -21,8 +21,8 @@ CordJS - документация
     x: y
 
 
-Indices and tables
-==================
+Индексы и Таблицы
+=================
 
 * :ref:`genindex`
 * :ref:`search`
