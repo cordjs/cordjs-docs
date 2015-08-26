@@ -1,0 +1,17 @@
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>{{ _('Вы здесь') }}:</h2>
+  </div>
+  <div class="sidebar-toc">
+    <ul>
+      <li class="toctree-l1">
+        <a href="{{ pathto('contents') }}">{{ docstitle }}</a>
+        {% for p in parents %}
+          <ul><li class="toctree-l{{ loop.index+1 }}"><a href="{{ p.link }}">{{ p.title }}</a>
+        {% endfor %}
+        <ul><li class="toctree-l{{ parents|length + 2 }} current"><a>{{ title }}</a></li></ul>
+        {% for p in parents %}</li></ul>{% endfor %}
+      </li>
+    </ul>
+  </div>
+</div>

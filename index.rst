@@ -3,14 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-###########################
-CordJS - обзор документации
-###########################
+#########################
+Обзор документации CordJS
+#########################
 
-Вы попали на сайт документарции фронтенд фреймворка CordJS. Здесь собрана информация, которая позволит вам
+Вы попали на сайт документарции фронтенд-фреймворка CordJS. Здесь собрана информация, которая позволит вам
 разрабатывать приложения с использованием этого фреймворка.
-
-
 
 
 Первые шаги
@@ -19,10 +17,11 @@ CordJS - обзор документации
 Если вы новичок в разработке на CordJS, то вам сюда:
 
 * **С нуля:**
-  :doc:`Ознакомление с фреймворком <intro/overview>` |
-  :doc:`Установка <intro/install>`
+  :doc:`Что за зверь такой? <intro/about>` |
+  :doc:`Обзор возможностей <intro/overview>`
 
 * **Начало работы:**
+  :doc:`Установка <quickstart/install>`
   :doc:`Создание нового проекта <quickstart/create-project>` |
   :doc:`Hello world! <quickstart/hello-world>` |
   :doc:`Добавим структуру <quckstart/layout>` |
@@ -42,7 +41,7 @@ CordJS - обзор документации
 
 * **Структура проекта:**
   :doc:`Общее описание <general/project-structure>` |
-  :doc:`Система бандлов <general/bundles>`
+  :doc:`Система бандлов <general/bundles>` |
   :doc:`Управление внешними зависимостями <general/dependencies>`
 
 * **requirejs и система путей в CordJS**
@@ -78,6 +77,7 @@ CordJS - обзор документации
 
 * :doc:`Доморощенный Рromise - Future <internals/future>`
 * :doc:`Компиляция шаблонов с помощью dustjs <internals/dustjs>`
+* :doc:`Coffee-script style guide <internals/styleguide>`
 
 
 CLI-инструмент ``cordjs``

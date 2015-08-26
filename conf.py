@@ -142,6 +142,7 @@ html_theme_options = {
     # Set the name of the project to appear in the sidebar
     'project_nav_name': 'CordJS',
     'disqus_comments_shortname': 'cordjs',
+    'homepage': 'index',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -184,6 +185,26 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
+html_sidebars = {
+    '**': ['logo-text.html',
+           'localtoc.html',
+           'searchbox.html',
+           'you-are-here.html'],
+
+    'index': ['logo-text.html',
+           'localtoc.html',
+           'searchbox.html',
+           'globaltoc.html'],
+
+    'contents': ['logo-text.html',
+           'globaltoc.html',
+           'searchbox.html'],
+
+    '*/index': ['logo-text.html',
+           'globaltoc.html',
+           'searchbox.html',
+           'you-are-here.html'],
+}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
