@@ -7,3 +7,4 @@
 
   about
   overview
+  quickstart

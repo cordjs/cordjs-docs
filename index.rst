@@ -21,11 +21,11 @@
   :doc:`Обзор возможностей <intro/overview>`
 
 * **Начало работы:**
-  :doc:`Установка <quickstart/install>`
-  :doc:`Создание нового проекта <quickstart/create-project>` |
-  :doc:`Hello world! <quickstart/hello-world>` |
-  :doc:`Добавим структуру <quckstart/layout>` |
-  :doc:`Работа с данными <quickstart/model>`
+  :ref:`Установка <quickstart-install>` |
+  :ref:`Создание нового проекта <quickstart-create-project>` |
+  :ref:`Hello world! <quickstart-hello-world>` |
+  :ref:`Добавим структуру <quckstart-layout>` |
+  :ref:`Работа с данными <quickstart-model>`
 
 
 Общая информация --- как всё работает
