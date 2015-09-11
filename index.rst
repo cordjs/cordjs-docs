@@ -24,7 +24,9 @@
   :ref:`Установка <quickstart-install>` |
   :ref:`Создание нового проекта <quickstart-create-project>` |
   :ref:`Hello world! <quickstart-hello-world>` |
-  :ref:`Добавим структуру <quckstart-layout>` |
+  :ref:`Добавим структуру <quickstart-layout>` |
+  :ref:`Параметры и состояние виджета <quickstart-state>` |
+  :ref:`Переходы между страницами <quickstart-page-transitions>` |
   :ref:`Работа с данными <quickstart-model>`
 
 
