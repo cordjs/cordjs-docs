@@ -391,14 +391,145 @@ html-страницы (тегами ``html``, ``head`` и ``body``. Обычно
 Переходы между страницами (экранами)
 ====================================
 
+Наше приложение всё ещё слишком простое, поскольку состоит из единственной страницы. Чтобы сделать его более похожим
+на настоящее, добавим в него ещё один экран, отображающий текущее время. Для этого нам понадобится новый виджет
+``CurrentTimePage``:
+
+.. code-block:: coffee
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/currentTimePage/CurrentTimePage.coffee
+
+  define [
+    'cord!Widget'
+  ], (Widget) ->
+
+    class CurrentTimePage extends Widget
+
+      behaviourClass: false
+
+.. code-block:: html
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/currentTimePage/currentTimePage.html
+  :emphasize-lines: 2
+
+  {#extend type="//BaseLayout" title="Current Time Page"}
+    {#inline}
+      <a href="/">Go to main page</a>
+    {/inline}
+    {#widget type="//CurrentTime"/}
+  {/extend}
+
+В плейсхолдер лейаута ``BaseLayout`` тут вставлена не только разметка (навигация к главной странице), но и другой
+виджет --- ``CurrentTime``. Предполагается, что именно он занимается непосредственно отображением времени. Вдруг, нам
+понадобится отобразить время точно так же в другом месте :) Контент в плейсхолдер вставляется именно в том порядке, в
+котором перечислен в шаблоне.
+
+.. code-block:: coffee
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/currentTime/CurrentTime.coffee
+
+  define [
+    'cord!Widget'
+  ], (Widget) ->
+
+    class CurrentTime extends Widget
+
+      behaviourClass: false
+
+      @initialCtx:
+        time: '00:00:00'
+
+      onShow: ->
+        time = new Date
+        @ctx.set('time', time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds())
+
+.. note::
+
+  Если в виджете объявлен метод ``onShow``, он выполняется перед **первым** рендерингом шаблона этого виджета, т.е.
+  когда он первый раз "показывается". Его удобно использовать для выставления каких-либо начальных значений
+  переменных контекста, если они не были заданы с помощью входящих параметров или не могут быть заданы простым
+  скалярным выражением.
+
+.. code-block:: html
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/currentTime/currentTime.html
+
+  <div>{time}</div>
+
+Осталось добавить роут для вновь-созданной странички:
+
+.. code-block:: coffee
+  :linenos:
+  :caption: public/bundles/hello/example/config.coffee
+  :emphasize-lines: 4,5
+
+  define ->
+    routes:
+      # ...
+      '/current-time':
+        widget: '//CurrentTimePage'
+
+и ссылку с главной:
+
+.. code-block:: html
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/helloWorldPage/helloWorldPage.html
+  :emphasize-lines: 4-6
+
+  {#extend type="//BaseLayout" title="Hello World Page"}
+    {#inline}
+      <h1>Hello World!</h1>
+      <div>
+        <a href="/current-time">Show current time</a>
+      </div>
+    {/inline}
+  {/extend}
+
+Всё готово! Перезапустите сборку проекта (из-за новых виджетов) и попробуйте открыть главную страницу в браузере и
+попереходить по ссылкам туда-обратно. Обратите внимание, что перезагрузки страницы при этом не происходит, но
+адресная строка в браузере изменяется. Находясь на любой из друх страниц вы можете обновить страницу браузера и
+увидите то, что ожидаете. При этом "правильная" страница будет сразу загружена с сервера, а не реконструирована из
+пустой болванки на стороне браузера (как это делают многие современные фреймворки).
 
 
 Динамическое поведение (behaviour)
 ==================================
 
+Внимательный наблюдатель должен был заметить одну ошибку в поведении предыдущего примера --- при переходе между
+страницами заголовок (``title``) не изменяется. К сожалению, CordJS "не умеет" автоматически перерисовывать виджет
+при изменении переменных контекста (позже будет объяснение). Разработчик должен "научить" виджет правильно обновлять
+свой отображение в соответствие с изменившимся внутренним состоянием. Реакция может быть одной из двух: либо ручная
+DOM-манипуляция, либо полная перерисовка (re-render) виджета.
 
-.. _quickstart-model:
+Для описания такого динамического поведения в CordJS-виджетах используется отдельный класс-поведение (или behaviour).
+Он записывается в отдельном файле внутри папки виджета, называется так же, как и сам файл виджета, но с суффиксом
+``Behaviour``. Behaviour-класс выделен отдельно, поскольку в нём описывается только то, что происходит исключительно
+в браузере, он может зависеть от библиотек, которые используют DOM, что в nodejs-среде недопустимо.
 
-Работа с данными
-================
+Итак, научим ``BaseLayout`` правильно обновлять содержимое своего тега ``title``:
+
+.. code-block:: coffee
+  :linenos:
+  :caption: public/bundles/hello/example/widgets/baseLayout/BaseLayoutBehaviour.coffee
+
+  define [
+    'cord!Behaviour'
+  ], (Widget) ->
+
+    class BaseLayoutBehaviour extends Behaviour
+
+      @widgetEvents:
+        title: 'onTitleChange'
+
+      onTitleChange: (data) ->
+        document.title = data.value
+
+Здесь:
+
+  * ``title`` --- название переменной контекста виджета, на изменения которой подписываемся.
+  * ``onTitleChange`` --- название, callback-метода в behaviour-классе, который обработает изменение ``title``.
+  * ``data`` --- структура, содержащая старое (``.oldValue``) и новое (``.value``) значение переменной контекста.
+
+Необходимо также "включить" behaviour-класс, удалив свойство ``behaviourClass`` из файла ``BaseLayout.coffee`` или
+выставив его значение в ``null``.
 
