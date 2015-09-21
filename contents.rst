@@ -8,6 +8,8 @@
   index
 
   intro/index
+  general/index
+  widget/index
 
   contributing/writing-documentation
 
