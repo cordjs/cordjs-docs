@@ -7,6 +7,8 @@
 
   overview
   main-class
+  context
   template
+  async-rendering
   behaviour
   css

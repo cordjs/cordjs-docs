@@ -119,8 +119,8 @@ Hello World!
   touch HelloWorldPage.coffee
   touch helloWorldPage.html
 
-Создадим минимальный пустой класс виджета. Можете пока не обращать внимания на свойство ``behaviourClass``. Файл
-класса виджета должен называться так же, как и папка, но с заглавной буквы.
+Создадим минимальный пустой класс виджета. Файл класса виджета должен называться так же, как и папка, но с заглавной
+буквы.
 
 .. code-block:: coffee
   :linenos:
@@ -131,8 +131,6 @@ Hello World!
   ], (Widget) ->
 
     class HelloWorldPage extends Widget
-
-      behaviourClass: false
 
 Файл шаблона виджета называется так же, как и папка, с расширением ``.html``. В качестве шаблонизатора используется
 dustjs.
@@ -230,7 +228,6 @@ html-страницы (тегами ``html``, ``head`` и ``body``. Обычно
 
     class BaseLayout extends Widget
 
-      behaviourClass: false
 
 .. code-block:: html
   :linenos:
@@ -320,8 +317,6 @@ html-страницы (тегами ``html``, ``head`` и ``body``. Обычно
 
   class BaseLayout extends Widget
 
-    behaviourClass: false
-
     @initialCtx:
       title: ''
 
@@ -405,7 +400,6 @@ html-страницы (тегами ``html``, ``head`` и ``body``. Обычно
 
     class CurrentTimePage extends Widget
 
-      behaviourClass: false
 
 .. code-block:: html
   :linenos:
@@ -433,8 +427,6 @@ html-страницы (тегами ``html``, ``head`` и ``body``. Обычно
   ], (Widget) ->
 
     class CurrentTime extends Widget
-
-      behaviourClass: false
 
       @initialCtx:
         time: '00:00:00'
@@ -531,8 +523,8 @@ DOM-манипуляция, либо полная перерисовка (re-ren
   * ``onTitleChange`` --- название, callback-метода в behaviour-классе, который обработает изменение ``title``.
   * ``data`` --- структура, содержащая старое (``.oldValue``) и новое (``.value``) значение переменной контекста.
 
-Необходимо также "включить" behaviour-класс, удалив свойство ``behaviourClass`` из файла ``BaseLayout.coffee`` или
-выставив его значение в ``null``.
+После добавления behaviour-класса необходимо пересобрать проект заново (с опцией ``-C``) из-за особенностей
+кеширования сборщиком факта наличия файла behaviour-класса.
 
 Теперь при переходе между страницами заголовок страницы в браузере будет корректно изменяться.
 
@@ -590,7 +582,7 @@ DOM-манипуляция, либо полная перерисовка (re-ren
 метода ``updateTime()``. Этот принцип следует соблюдать всегда --- изменение состояния виджета должно происходить
 только внутри класса виджета (который состоянием/контекстом и владеет). Это здорово облегчает поддержку кода.
 
-Осталось только реализовать метод ``updateTime`` и включить behaviour для виджета ``CurrentTime``:
+Осталось только реализовать метод ``updateTime``:
 
 .. code-block:: coffee
   :linenos:
