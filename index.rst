@@ -59,8 +59,8 @@
 * :doc:`Обзор подсистемы виджетов <widget/overview>`
 * :ref:`Описание жизненного цикла виджета <widget-life-cycle>`
 * :doc:`Главный класс виджета <widget/main-class>`
-* Шаблон виджета
-* Класс-поведение (behaviour)
+* :doc:`Шаблон виджета <widget/template>`
+* :doc:`Класс-поведение (behaviour) <widget/behaviour>`
 * Работа с CSS
 
 
