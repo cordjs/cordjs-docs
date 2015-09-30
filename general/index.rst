@@ -5,6 +5,7 @@
 .. toctree::
   :maxdepth: 3
 
+  project-structure
   async
   isomorph
   view-first

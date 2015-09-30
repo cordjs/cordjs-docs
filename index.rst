@@ -61,7 +61,7 @@
 * :doc:`Главный класс виджета <widget/main-class>`
 * :doc:`Шаблон виджета <widget/template>`
 * :doc:`Класс-поведение (behaviour) <widget/behaviour>`
-* Работа с CSS
+* :doc:`Работа с CSS <widget/css>`
 
 
 Модель --- гибкая абстракция для работы с данными через REST API
