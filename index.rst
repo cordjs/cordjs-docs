@@ -46,11 +46,11 @@
   :doc:`Система бандлов <general/bundles>` |
   :doc:`Управление внешними зависимостями <general/dependencies>`
 
-* **requirejs и система путей в CordJS**
+* :doc:`RequireJS и система путей в CordJS <general/requirejs>`
 
-* **Роутинг:**
+* :doc:`Роутинг <general/routes>`
 
-* **Сервисы и dependency injection:**
+* :doc:`Сервисы и dependency injection <general/di>`
 
 
 Виджет --- главная сущность в CordJS
