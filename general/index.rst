@@ -11,6 +11,4 @@
   routes
   di
 
-  async
-  isomorph
-  view-first
+  key-concepts
