@@ -10,6 +10,7 @@
   intro/index
   general/index
   widget/index
+  model/index
 
   contributing/writing-documentation
 
