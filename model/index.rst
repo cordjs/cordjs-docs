@@ -6,6 +6,8 @@
   :maxdepth: 3
 
   intro
-  common-api
+  api-repo
+  api-collection
+  api-model
   widget-binding
   low-level-api
