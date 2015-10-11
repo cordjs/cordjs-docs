@@ -48,9 +48,7 @@
 
 * **Ключевые концепции:**
   :ref:`Непротивление асинхронности <key-concepts-async>` |
-  :ref:`Изоморфность <key-concepts-isomorph>` |
-  :doc:`Главное - представление <general/view-first>` |
-  :doc:`Инкапсуляция поведения в компоненте-виджете <general/incapsulation>`
+  :ref:`Изоморфность <key-concepts-isomorph>`
 
 
 Виджет --- главная сущность в CordJS
@@ -87,8 +85,6 @@
 Про особенности внутренней реализации:
 
 * :doc:`Доморощенный Рromise - Future <internals/future>`
-* :doc:`Компиляция шаблонов с помощью dustjs <internals/dustjs>`
-* :doc:`Coffee-script style guide <internals/styleguide>`
 
 
 CLI-инструмент ``cordjs``
@@ -109,5 +105,6 @@ Contributing
 =================
 
 * :doc:`Подробное оглавление <contents>`
+* :doc:`glossary`
 * :ref:`genindex`
 * :ref:`search`
