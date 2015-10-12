@@ -12,6 +12,8 @@
   widget/index
   model/index
 
+  utils/index
+
   contributing/writing-documentation
 
   vdom/index

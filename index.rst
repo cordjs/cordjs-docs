@@ -84,7 +84,7 @@
 
 Про особенности внутренней реализации:
 
-* :doc:`Доморощенный Рromise - Future <internals/future>`
+* :doc:`Доморощенный Рromise - Future <utils/future>`
 
 
 CLI-инструмент ``cordjs``
