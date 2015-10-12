@@ -14,6 +14,8 @@
 
   utils/index
 
+  cli/index
+
   contributing/writing-documentation
 
   vdom/index
